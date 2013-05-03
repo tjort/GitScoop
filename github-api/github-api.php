@@ -29,7 +29,13 @@ class GithubApi {
 	    if (!file_exists('cache/' . $slug . '.json')) {
 	    	$request = $this->client->get($url);
 			if (!is_null($this->user) && !is_null($this->pass)) $request->setAuth($this->user, $this->pass);
-			$this->response = $request->send();
+
+			try {
+				$this->response = $request->send();
+			} catch (\Exception $e) {
+				return array();
+			}
+
 			$body = (string)$this->response->getBody();
 	    	$data = json_decode($body, true);
 	    	if (!empty($data)) file_put_contents('cache/' . $slug . '.json', json_encode($data));

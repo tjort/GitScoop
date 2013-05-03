@@ -22,16 +22,17 @@
 
 	    if (empty($repos) || count($repos)<3) $app->redirect('/error/' . $safename);
 	    shuffle($repos);
-	    $interesting = array_rand($repos, 3);
 
 	    $result = array();
-	    foreach ($interesting as $key) {
-	    	$repo = $repos[$key];
+	    foreach ($repos as $repo) {
 			$repoInfo = $githubApi->get('/repos/' . $repo['name']);
-			$result[] = array(
-				'name' 			=> $repo['name'],
-				'description'	=> $repoInfo['description']
-			);
+			if (!empty($repoInfo)) {
+				$result[] = array(
+					'name' 			=> $repo['name'],
+					'description'	=> $repoInfo['description']
+				);
+			}
+			if (count($result) == 3) break;
 		}
 
 		$info = array(
