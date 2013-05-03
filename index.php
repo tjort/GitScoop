@@ -9,6 +9,9 @@
 
 		$safename = preg_replace('/[^A-Za-z0-9-]+/', '-', $name);
 
+		$user = $githubApi->get('/users/' . $name);
+		if (empty($user)) $app->redirect('/error/' . $safename);
+
 		$events = $githubApi->get('/users/' . $name . '/events');
 	    if (empty($events)) $app->redirect('/error/' . $safename);
 
@@ -31,7 +34,12 @@
 			);
 		}
 
-		$app->render('status.php', array('information'=>$result));
+		$info = array(
+			'name' 		=> $user['login'],
+			'avatar'	=> $user['avatar_url'],
+			'repos' 	=> $result,
+		);
+		$app->render('status.php', $info);
 	});
 
 	$app->run();

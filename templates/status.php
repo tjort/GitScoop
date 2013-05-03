@@ -1,7 +1,7 @@
 <?php
 	$parts = array();
 
-	$data = $this->getData('information');
+	$data = $this->getData('repos');
 	foreach ($data as $d) {
 		// clean up description
 		$description = strtolower(htmlentities($d['description']));
@@ -27,4 +27,19 @@
 
 ?>
 
-<h3>Just <?php echo $verb; ?> an improved <?php echo $parts[0]; ?> by combining a <?php echo $parts[1]; ?> and a <?php echo $parts[2]; ?></h3>
+
+<div class="status">
+	<div class="header">
+		<a href="">
+			<img src="<?php echo $this->getData('avatar'); ?>">
+			<strong><?php echo $this->getData('name'); ?></strong>
+			</a>
+
+    	<small class="time">
+			<span>12 may</span>
+		</small>
+  </div>
+
+  <p>Just <?php echo $verb; ?> an improved <?php echo $parts[0]; ?> by combining a <?php echo $parts[1]; ?> and a <?php echo $parts[2]; ?></p>
+
+</div>
