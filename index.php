@@ -3,7 +3,34 @@
 	require_once('vendor/autoload.php');
 	$app = new \Slim\Slim();
 
-	$app->get('/:name', function ($name) use ($app) {
+	// ====================================
+	// index
+	// ====================================
+
+	$app->get('/', function() use ($app) {
+		$view = new \Slim\View(); $view->setTemplatesDirectory('templates/');
+		$data = array(
+			'content' => $view->render('index.php')
+		);
+		// render
+		$app->render('base.php', $data);
+
+	});
+
+	// ====================================
+	// about
+	// ====================================
+
+
+	$app->get('/about', function() use ($app) {
+		$app->render('about.php');
+	});
+
+	// ====================================
+	// name
+	// ====================================
+
+	$app->get('/:name', function($name) use ($app) {
 		require_once('github-api/github-api.php');
 		$githubApi = new GithubApi\GithubApi();
 
@@ -41,6 +68,11 @@
 			'repos' 	=> $result,
 		);
 		$app->render('status.php', $info);
+
 	});
+
+	// ====================================
+	// run application
+	// ====================================
 
 	$app->run();
