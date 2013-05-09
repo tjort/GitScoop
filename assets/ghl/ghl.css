@@ -35,11 +35,29 @@ h1 {
 	line-height: 45px;
 }
 
+h1 i {
+	display: block;
+	float: left;
+	margin-right: 20px;
+}
+
+h1 a, h1 a:hover {
+	color: #fff;
+}
+
 h2,h3 {
-	color: #FF530D;
-	font-size: 30px;
+	color: #C72020;
+	font-size: 25px;
 	line-height: 25px;
 	padding-bottom: 20px;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	color: #C72020
 }
 
 .padded {
@@ -50,6 +68,26 @@ form {
 	padding: 0px;
 	margin: 0px;
 }
+
+a>em {
+	margin-right: 10px;
+	font-size: 40px;
+	display: table-cell;
+	text-align: center;
+}
+
+ul.social {
+	padding: 0;
+	margin: 0;
+}
+
+ul.social li {
+	display: block;
+	float: left;
+	width: 60px;
+	margin-right: 10px;
+}
+
 /* --- */
 
 #header {
@@ -93,8 +131,8 @@ form {
 }
 
 #search input[type="submit"] {
-	background-color: #CBCBCB;
-	color: #595C61;
+	background-color: #336699;
+	color: #FFFFFF;
 	font-family: "SourceSansProBlack";
 	padding: 0px 20px;
 	margin-left: 20px;
