@@ -11,27 +11,38 @@
 	<link rel="stylesheet" type="text/css" href="/assets/source-sans/style.css" />
 </head>
 <body>
-	<div id="container">
-		<div class="row">
-			<div id="header">
-				<h1>GitScoop <span>all the news that's fit to fork</span></h1>
-			</div>
-		</div>
-
-		<div class="row">
-			<div id="search" class="centered">
-				<div class="padded">
-					<p>What are those Github users working on?</p>
-					<p>
-						<input type="text" name="q" placeholder="Any Github username" />
-						<input type="submit" value="Scoop!" />
-					</p>
+	<div id="header">
+		<div class="page">
+			<div class="padded">
+				<div class="row">
+					<h1>GitScoop</h1>
 				</div>
 			</div>
 		</div>
+	</div>
 
-		<div class="row">
-			<div id="colofon">
+	<div id="banner">
+
+		<div class="page">
+			<div class="padded">
+				<div class="row">
+					<div id="search" class="two thirds">
+						<div class="padded">
+							<form>
+								<p>What is <input type="text" placeholder="Github user" /> secretly working on? <input type="submit" value="Find out!" /></p>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+	<div id="colofon">
+		<div class="page">
+			<div class="row">
 				<div class="third">
 					<div class="padded">
 						<h2>What's this?</h2>
@@ -47,7 +58,7 @@
 				</div>
 				<div class="third">
 					<div class="padded">
-						<h2>Twitter</h2>
+						<h2>Latest GitScoops</h2>
 					</div>
 				</div>
 			</div>
