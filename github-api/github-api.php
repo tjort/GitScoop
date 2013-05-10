@@ -26,7 +26,7 @@ class GithubApi {
 	public function get($url) {
 		$slug = trim(substr(preg_replace('/[^A-Za-z0-9-]+/', '-', $url), 0, 50), '-');
 		$data = array();
-	    if (!file_exists('cache/' . $slug . '.json')) {
+	    if (!file_exists('cache/' . $slug . '.json') || (filemtime('cache/' . $slug . '.json') < strtotime('-1 week'))) {
 	    	$request = $this->client->get($url);
 			if (!is_null($this->user) && !is_null($this->pass)) $request->setAuth($this->user, $this->pass);
 
