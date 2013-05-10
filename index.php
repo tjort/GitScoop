@@ -106,14 +106,14 @@
 	// error
 	// ====================================
 
-	$app->get('/error/:name', function() use ($app) {
+	$app->map('/error/(:name)', function($name = '') use ($app) {
 		$view = new \Slim\View(); $view->setTemplatesDirectory('templates/');
 		$data = array(
 			'content' => $view->render('error.php')
 		);
 		// render
 		$app->render('base.php', $data);
-	});
+	})->via('GET', 'POST');
 
 	// ====================================
 	// run application
